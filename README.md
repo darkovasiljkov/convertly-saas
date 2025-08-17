@@ -12,4 +12,4 @@ This project is built as part of my Bachelor's thesis, showcasing how AI can be 
 - Clean and intuitive user interface  
 
 ## About
-Convertly is designed to demonstrate the potential of AI-driven automation in professional communication while also serving as a practical example of building and deploying a SaaS product.  
+Convertly showcases how AI-driven automation can transform lead generation and outreach.  
