@@ -1,9 +1,9 @@
 # Convertly
 
-Skyrocket your outreach game with this AI-powered SaaS 🚀  
+Skyrocket your outreach game with **Convertly** – an AI-powered lead magnet SaaS.   🚀  
 
-Convertly is a full-stack web application that leverages the ChatGPT API to help users generate personalized messages, optimize communication, and boost engagement.  
-This project is built as part of my Bachelor's thesis, showcasing how AI can be applied to improve lead generation and outreach efficiency.  
+Create engaging resources like e-books, guides, and tips, then let an interactive chatbot capture emails and convert visitors into leads.  
+
 
 ## Features
 - AI-powered message generation and personalization  
@@ -12,4 +12,4 @@ This project is built as part of my Bachelor's thesis, showcasing how AI can be 
 - Clean and intuitive user interface  
 
 ## About
-Convertly showcases how AI-driven automation can transform lead generation and outreach.  
+Convertly is designed to demonstrate the potential of AI-driven automation in professional communication while also serving as a practical example of building and deploying a SaaS product.  
