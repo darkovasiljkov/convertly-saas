@@ -1,0 +1,58 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../lib/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+
+model LeadMagnet {
+  id                     String    @id @default(uuid())
+  userId                 String
+  name                   String
+  status                 String
+  slug                   String?
+  publishedTitle         String    @db.Text
+  draftTitle             String    @db.Text
+  publishedSubtitle      String    @db.Text
+  draftSubtitle          String    @db.Text
+  publishedPrompt        String    @db.Text
+  draftPrompt            String    @db.Text
+  publishedBody          String    @db.Text
+  draftBody              String    @db.Text
+  publishedFirstQuestion String    @db.Text
+  draftFirstQuestion     String    @db.Text
+  publishedEmailCapture  String    @db.Text
+  draftEmailCapture      String    @db.Text
+  createdAt              DateTime  @default(now())
+  updatedAt              DateTime  @default(now())
+  publishedAt            DateTime? @db.Date()
+  pageViews              Int       @default(0)
+  leads                  Lead[]
+
+  @@unique([userId, slug])
+}
+
+model Lead {
+  id           String     @id @default(uuid())
+  userId       String
+  leadMagnetId String
+  name         String
+  email        String
+  createdAt    DateTime   @default(now())
+  updatedAt    DateTime   @default(now())
+  LeadMagnet   LeadMagnet @relation(fields: [leadMagnetId], references: [id], onDelete: Cascade)
+
+  @@index([leadMagnetId])
+  @@index([userId]) // For querying leads by user (speeding up)
+}

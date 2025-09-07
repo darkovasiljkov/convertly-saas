@@ -23,7 +23,6 @@ const Hero = () => {
     <span className="bg-gradient-to-r from-sky-400 to-blue-500 bg-clip-text text-transparent">
       {" "}AI-Powered Lead Magnets
     </span>
-    {" "}with Convertly
   </h1>
 
   <p className="mt-6 max-w-2xl text-base text-gray-600 sm:text-lg md:text-xl">
