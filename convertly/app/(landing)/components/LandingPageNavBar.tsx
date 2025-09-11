@@ -12,7 +12,7 @@ async function LandingPageNavbar() {
     <nav className="flex w-screen items-center justify-between p-6 h-20">
       <Link href="/" className="flex items-center no-underline"> 
         <Image
-          src="/ConvertlyTransparent_Logo.png" // Replace with your actual logo filename
+          src="/ConvertlyTransparent_Logo.png" 
           alt="Convertly Logo"
           width={150}
           height={150}
