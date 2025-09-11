@@ -1,6 +1,7 @@
 import { auth } from "@clerk/nextjs/server";
 import { prismadb } from "../../../lib/prismadb";
 import React from "react";
+import LeadMagnetsContainer from "./components/LeadMagnetsContainer";
 
 const getLeadMagnets = async (userId: string) => {
   try {
@@ -42,5 +43,7 @@ export default async function LeadMagnetsPage() {
     leadMagnetsRequest,
     leadsRequest
   ]);
+
+  return <LeadMagnetsContainer leadMagnets={leadMagnets} leads={leads} />;
   
 }
