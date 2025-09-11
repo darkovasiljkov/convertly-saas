@@ -1,4 +1,4 @@
-const PrismaClient = require("@prisma/client").PrismaClient;
+import { PrismaClient } from "../lib/generated/prisma";
 
 const prisma = new PrismaClient();
 
@@ -21,7 +21,7 @@ const seed = async () => {
       publishedTitle: "This is a published title",
       slug: "lead-magnet-slug",
       status: "draft",
-      userId: "user_2WruMGsskRrt6HDECpRhzNyH1vp",
+      userId: "user_32KwMp6ptaO3FEkOz1SZEWEK9n6",
     },
   });
 
@@ -31,13 +31,13 @@ const seed = async () => {
         name: "Dummy User 1",
         email: "dummy1@gmail.com",
         leadMagnetId: "123456789",
-        userId: "user_2WruMGsskRrt6HDECpRhzNyH1vp",
+        userId: "user_32KwMp6ptaO3FEkOz1SZEWEK9n6",
       },
       {
         name: "Dummy User 2",
         email: "dummy2@gmail.com",
         leadMagnetId: "123456789",
-        userId: "user_2WruMGsskRrt6HDECpRhzNyH1vp",
+        userId: "user_32KwMp6ptaO3FEkOz1SZEWEK9n6",
       },
     ],
   });
