@@ -25,7 +25,7 @@ async function LandingPageNavbar() {
             <Link href="/lead-magnets">
               <Button variant="outline">Get Started</Button>
             </Link>
-            <UserButton />
+            <UserButton showName  />
           </div>
         ) : (
           <SignInButton />

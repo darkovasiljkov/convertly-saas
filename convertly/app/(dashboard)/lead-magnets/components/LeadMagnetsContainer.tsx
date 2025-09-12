@@ -5,6 +5,7 @@ import { LeadMagnet, Lead} from "@/lib/generated/prisma";
 import Link from "next/link";
 import React from "react";
 import LeadMagnetTable from "./LeadMagnetTable";
+import { CardHeader } from "@/components/ui/card";
 
 
 interface LeadMagnetsContainerProps {
@@ -24,10 +25,8 @@ function LeadMagnetsContainer({ leadMagnets, leads }: LeadMagnetsContainerProps)
                 </Button>
             </div>
         
-        <LeadMagnetTable leadMagnets={leadMagnets} leads={leads} />
-
-      
-        </div>
-    )
+         <LeadMagnetTable leadMagnets={leadMagnets} leads={leads} />
+    </div>
+  );
 }
 export default LeadMagnetsContainer;
