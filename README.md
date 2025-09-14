@@ -12,4 +12,4 @@ Create engaging resources like e-books, guides, and tips, then let an interactiv
 - Clean and intuitive user interface  
 
 ## About
-Convertly is designed to demonstrate the potential of AI-driven automation in professional communication while also serving as a practical example of building and deploying a SaaS product.  
+Convertly is a full-stack SaaS platform that helps businesses attract and convert potential customers through interactive AI chatbots. It enables users to deliver engaging lead magnet content, collect emails for full access, and analyze interactions to optimize marketing strategies.
