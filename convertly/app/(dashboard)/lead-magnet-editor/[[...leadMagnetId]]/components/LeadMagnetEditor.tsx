@@ -1,3 +1,5 @@
+"use client";
+
 import { LeadMagnetEditorContextProvider } from "@/context/LeadMagnetEditorContext";
 import { LeadMagnet } from "@/lib/generated/prisma";
 import React, { useState } from "react";
@@ -19,8 +21,8 @@ function LeadMagnetEditor() {
       className="flex h-screen w-full flex-col overflow-y-hidden"
       style={{ height: `calc(100vh - 66px)` }}
     >
-      <LeadMagnetEditorNavbar />
-      <div className="flex h-full flex-row">
+      <LeadMagnetEditor />
+      {/* <div className="flex h-full flex-row">
         <LeadMagnetEditorSidebar
           isSidebarCollapsed={isSidebarCollapsed}
           setSelectedEditor={setSelectedEditor}
@@ -33,7 +35,7 @@ function LeadMagnetEditor() {
           {selectedEditor === "profile" && <LeadMagnetProfileEditor />}
           {selectedEditor === "settings" && <LeadMagnetSettings />}
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }
