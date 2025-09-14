@@ -37,7 +37,7 @@ export const LeadMagnetEditorContextProvider = ({
     useState<LeadMagnet>(leadMagnet);
 
   if (!session) {
-    throw new Error("No session found");
+    throw new Error("No session found.");
   }
 
   const save = async () => {
@@ -52,10 +52,10 @@ export const LeadMagnetEditorContextProvider = ({
       });
 
       if (response.data.data) {
-        toast.success("Lead Magnet saved successfully");
+        toast.success("Lead Magnet has been saved successfully.");
       }
     } catch (error) {
-      toast.error("Failed to save Lead Magnet");
+      toast.error("Failed to save Lead Magnet.");
     }
   };
 
@@ -67,10 +67,10 @@ export const LeadMagnetEditorContextProvider = ({
 
       if (response.data.data) {
         setEdittedLeadMagnet(response.data.data);
-        toast.success("Lead Magnet published successfully");
+        toast.success("Lead Magnet has been published successfully.");
       }
     } catch (error) {
-      toast.error("Failed to publish Lead Magnet");
+      toast.error("Failed to publish Lead Magnet.");
     }
   };
 
@@ -81,10 +81,10 @@ export const LeadMagnetEditorContextProvider = ({
       });
 
       if (response.data.data) {
-        toast.success("Lead Magnet unpublished successfully");
+        toast.success("Lead Magnet unpublished successfully.");
       }
     } catch (error) {
-      toast.error("Failed to unpublish Lead Magnet");
+      toast.error("Failed to unpublish Lead Magnet.");
     }
   };
 
@@ -95,10 +95,10 @@ export const LeadMagnetEditorContextProvider = ({
       );
 
       if (response.data.success) {
-        toast.success("Lead Magnet deleted successfully");
+        toast.success("Lead Magnet has been deleted successfully.");
       }
     } catch (error) {
-      toast.error("Failed to delete Lead Magnet");
+      toast.error("Failed to delete Lead Magnet.");
     }
   };
 
@@ -118,12 +118,13 @@ export const LeadMagnetEditorContextProvider = ({
   );
 };
 
-// Custom hook to use the context
+// Custom hook where we grab save
 export function useLeadMagnetEditorContext() {
   const context = useContext(LeadMagnetEditorContext);
+
   if (!context) {
     throw new Error(
-      "useLeadMagnetEditorContext must be used within a LeadMagnetEditorProvider"
+      "useLeadMagnetEditorContext must be used within a LeadMagnetEditorProvider."
     );
   }
 
