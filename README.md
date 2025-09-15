@@ -1,4 +1,4 @@
-# Convertly <img width="50" height="50" alt="Convertly_png_logo" src="https://github.com/user-attachments/assets/67b61903-70c6-4261-ad55-397008718551" />
+# Convertly <img width="150" height="150" alt="Convertly_png_logo" src="https://github.com/user-attachments/assets/67b61903-70c6-4261-ad55-397008718551" />
 
 
 Skyrocket your outreach game with **Convertly** – an AI-powered lead magnet SaaS.   🚀  
