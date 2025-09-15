@@ -6,6 +6,7 @@ import Link from "next/link";
 import React from "react";
 import LeadMagnetTable from "./LeadMagnetTable";
 import { CardHeader } from "@/components/ui/card";
+import { useRouter } from "next/navigation";
 
 
 interface LeadMagnetsContainerProps {
@@ -15,6 +16,8 @@ interface LeadMagnetsContainerProps {
 
 
 function LeadMagnetsContainer({ leadMagnets, leads }: LeadMagnetsContainerProps) {
+
+     const router = useRouter();
 
     return (
         <div className="p-6 w-full lg:max-w-5xl lg:mx-auto">

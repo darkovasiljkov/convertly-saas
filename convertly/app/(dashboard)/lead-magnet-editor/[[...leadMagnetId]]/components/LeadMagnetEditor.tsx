@@ -3,6 +3,8 @@
 import { LeadMagnetEditorContextProvider } from "@/context/LeadMagnetEditorContext";
 import { LeadMagnet } from "@/lib/generated/prisma";
 import React, { useState } from "react";
+
+
 export type LeadMagnetSections =
   | "content"
   | "prompt"
