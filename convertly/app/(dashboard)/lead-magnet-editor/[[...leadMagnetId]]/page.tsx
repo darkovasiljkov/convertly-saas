@@ -1,11 +1,10 @@
 
-
-import { LeadMagnet } from "@/lib/generated/prisma";
 import { prismadb } from "@/lib/prismadb";
 import React from "react";
 import { DEFAULT_LEAD_MAGNET } from "./lead-magnet-constants";
 import LeadMagnetNotFound from "@/components/LeadMagnetNotFound";
 import LeadMagnetEditorContainer from "./components/LeadMagnetEditorContainer";
+import { LeadMagnet } from "@/lib/generated/prisma/client";
 
 
 interface LeadMagnetEditorParams {
@@ -31,8 +30,8 @@ async function LeadMagnetEditorPage({ params }: LeadMagnetEditorParams) {
         leadMagnet = await prismadb.leadMagnet.findUnique({
             where: {
                 id: leadMagnetId,
-            }
-        })
+            },
+        });
     }
 
     if (!leadMagnet)

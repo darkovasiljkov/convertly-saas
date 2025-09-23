@@ -1,5 +1,5 @@
 import React from 'react'
-import HashLoader from 'react-spinners/HashLoader';
+import RingLoader from 'react-spinners/RingLoader';
 
 export function LoadingScreen() {
   return (
@@ -8,7 +8,7 @@ export function LoadingScreen() {
         <div className="z-10 text-5xl font-bold text-sky-600 mb-5">
           Convertly
         </div>
-        <HashLoader color="rgba(25, 143, 223, 1)" speedMultiplier={1.5} />
+        <RingLoader color="rgba(25, 143, 223, 1)" speedMultiplier={1.5} />
       </div>
     </div>
   );

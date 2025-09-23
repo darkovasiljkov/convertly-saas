@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Lead, LeadMagnet } from "@/lib/generated/prisma";
+import { Lead, LeadMagnet } from "@/lib/generated/prisma/client";
 import {
   Table,
   TableBody,

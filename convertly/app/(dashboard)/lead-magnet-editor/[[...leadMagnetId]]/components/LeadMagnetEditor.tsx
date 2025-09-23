@@ -3,6 +3,7 @@
 import { LeadMagnetEditorContextProvider } from "@/context/LeadMagnetEditorContext";
 import { LeadMagnet } from "@/lib/generated/prisma";
 import React, { useState } from "react";
+import LeadMagnetEditorNavbar from "./LeadMagnetEditorNavBar";
 
 
 export type LeadMagnetSections =
@@ -11,7 +12,7 @@ export type LeadMagnetSections =
   | "email"
   | "profile"
   | "settings";
-
+ 
 
 function LeadMagnetEditor() {
   const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
@@ -23,7 +24,7 @@ function LeadMagnetEditor() {
       className="flex h-screen w-full flex-col overflow-y-hidden"
       style={{ height: `calc(100vh - 66px)` }}
     >
-      <LeadMagnetEditor />
+      <LeadMagnetEditorNavbar />
       {/* <div className="flex h-full flex-row">
         <LeadMagnetEditorSidebar
           isSidebarCollapsed={isSidebarCollapsed}
