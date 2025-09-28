@@ -6,11 +6,14 @@ import { usePathname } from "next/navigation";
 import { UserButton } from "@clerk/nextjs";
 import Image from "next/image";
 
-
 const routes = [    
     {
-        name: "Lead Magnets",
-        path: "/lead-magnets"
+      name: "Lead Magnets",
+      path: "/lead-magnets"
+    },
+    {
+      name: "Account",
+      path: "/account"
     }
 ]
 function DashboardNavBar() {

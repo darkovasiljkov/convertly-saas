@@ -28,7 +28,12 @@ async function LandingPageNavbar() {
             <UserButton showName  />
           </div>
         ) : (
-          <SignInButton />
+            <SignInButton mode="modal">
+    <Button
+    >
+      Sign In
+    </Button>
+  </SignInButton>
         )}
       </div>
     </nav>

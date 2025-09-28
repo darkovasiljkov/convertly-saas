@@ -11,8 +11,8 @@ async function handleRequest(
 ) {
   const user = await currentUser();
 
-  if (!user || !user?.id) {
-    return NextResponse.json({ message: "Unauthenticated" }, { status: 401 });
+  if (!user || !user.id) {
+    return NextResponse.json({ message: "Unauthorized" }, { status: 401 });
   }
 
   const userId = user.id;
