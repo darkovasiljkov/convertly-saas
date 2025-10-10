@@ -1,6 +1,6 @@
+import LeadMagnetAIChatContainer from '@/components/LeadMagnetAIChatContainer';
 import { useLeadMagnetEditorContext } from '@/context/LeadMagnetEditorContext'
 import React from 'react'
-
 export default function LeadMagnetPromptEditor() {
 
   const { edittedLeadMagnet, setEdittedLeadMagnet} = useLeadMagnetEditorContext();
@@ -47,13 +47,13 @@ export default function LeadMagnetPromptEditor() {
        </div>
        <div className="ai-dotted-pattern flex w-1/2 flex-col">
         <div className="mx-12 my-8 flex max-w-lg rounded-lg bg-white p-4 shadow-lg lg:mx-auto">
-          {/* <LeadMagnetAIChatContainer
+          <LeadMagnetAIChatContainer
             leadMagnetId={edittedLeadMagnet.id}
             emailCapturePrompt={edittedLeadMagnet.draftEmailCapture}
             firstQuestion={edittedLeadMagnet.draftFirstQuestion}
             prompt={edittedLeadMagnet.draftPrompt}
             captureEmail={false}
-          /> */}
+          />
         </div>
       </div>
     </div>

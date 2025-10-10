@@ -129,6 +129,17 @@
   background-position: 0 0, 10px 10px;
 }
 
+.ai-dotted-pattern {
+  background: radial-gradient(
+      circle,
+      rgba(255, 255, 255, 0.4) 1px,
+      transparent 1px
+    ),
+    radial-gradient(circle, rgba(255, 255, 255, 0.4) 1px, transparent 1px),
+    linear-gradient(to right, #3a84a3 , #678dd3); /* gradient background */
+  background-size: 20px 20px, 20px 20px, 100%; /* matching sizes for pattern, 100% for gradient */
+  background-position: 0 0, 10px 10px, 0 0; /* positioning for pattern and gradient */
+}
 .ProseMirror-focused {
   outline: none;
 }
