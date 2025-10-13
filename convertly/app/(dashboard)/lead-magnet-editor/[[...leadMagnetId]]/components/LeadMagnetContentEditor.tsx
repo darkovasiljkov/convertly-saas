@@ -61,7 +61,7 @@ const { edittedLeadMagnet, setEdittedLeadMagnet } =
 
   return ( <div className="flex h-full flex-row">
       <div className="m-8 flex w-1/2 flex-col">
-        <h1 className="mb-5 text-3xl font-bold text-black ">
+          <h1 className="mb-4 w-fit bg-gradient-to-r from-blue-500 to-blue-700 bg-clip-text text-3xl font-bold text-transparent">
           Content Lead Magnet Editor
         </h1>
         <div className="mb-4">

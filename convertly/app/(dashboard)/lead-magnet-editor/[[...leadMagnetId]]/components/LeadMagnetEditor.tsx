@@ -7,6 +7,7 @@ import LeadMagnetEditorNavbar from "./LeadMagnetEditorNavBar";
 import LeadMagnetContentEditor from "./LeadMagnetContentEditor";
 import LeadMagnetEditorSideBar from "./LeadMagnetEditorSideBar";
 import LeadMagnetPromptEditor from "./LeadMagnetPromptEditor";
+import LeadMagnetEmailEditor from "./LeadMagnetEmailEditor";
 
 
 export type LeadMagnetSections =
@@ -37,8 +38,8 @@ function LeadMagnetEditor() {
          <div className="h-full flex-grow">
           {selectedEditor === "content" && <LeadMagnetContentEditor />}
           {selectedEditor === "prompt" && <LeadMagnetPromptEditor />}
-          {/* {selectedEditor === "email" && <LeadMagnetEmailEditor />}
-          {selectedEditor === "profile" && <LeadMagnetProfileEditor />}
+          {selectedEditor === "email" && <LeadMagnetEmailEditor />}
+          {/* {selectedEditor === "profile" && <LeadMagnetProfileEditor />}
           {selectedEditor === "settings" && <LeadMagnetSettings />} */} 
         </div>
       </div>
