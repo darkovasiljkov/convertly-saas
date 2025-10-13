@@ -56,3 +56,16 @@ model Lead {
   @@index([leadMagnetId])
   @@index([userId]) // For querying leads by user (speeding up)
 }
+
+model Profile {
+  id              String   @id @default(uuid())
+  userId          String   @unique
+  title           String
+  description     String   @db.Text
+  profileimageUrl String   @db.Text
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @default(now())
+
+  
+    @@index([userId])
+}
