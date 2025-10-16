@@ -15,7 +15,7 @@ interface LeadMagnetEditorParams {
 
 
 async function LeadMagnetEditorPage({ params }: LeadMagnetEditorParams) {
-    const leadMagnetId =
+    const leadMagnetId = 
         params.leadMagnetId?.length > 0 ? params.leadMagnetId[0] : null;
 
     console.log("leadMagnetId", leadMagnetId);

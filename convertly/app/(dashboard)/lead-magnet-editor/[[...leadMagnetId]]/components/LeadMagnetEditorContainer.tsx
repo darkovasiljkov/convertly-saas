@@ -6,6 +6,7 @@ import LeadMagnetEditor from "./LeadMagnetEditor";
 import { useSession } from "@clerk/nextjs";
 import { LoadingScreen } from "@/components/LoadingScreen";
 import { LeadMagnetEditorContextProvider } from "@/context/LeadMagnetEditorContext";
+import { ProfileEditorContextProvider } from "@/context/ProfileEditorContext";
 
 
 interface LeadMagnetEditorContainerProps {
@@ -25,7 +26,9 @@ function LeadMagnetEditorContainer({
 
     return (
         <LeadMagnetEditorContextProvider leadMagnet={leadMagnet}>
-            <LeadMagnetEditor/>
+            <ProfileEditorContextProvider>
+                <LeadMagnetEditor/>
+            </ProfileEditorContextProvider>
         </LeadMagnetEditorContextProvider>
     )
 }
