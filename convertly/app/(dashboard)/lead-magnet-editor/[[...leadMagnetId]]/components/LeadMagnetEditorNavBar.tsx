@@ -8,6 +8,7 @@ import toast from "react-hot-toast";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import Link from "next/link";
+import { useProfileEditorContext } from "@/context/ProfileEditorContext";
 
 function LeadMagnetEditorNavbar() {
   const router = useRouter();
@@ -19,6 +20,9 @@ function LeadMagnetEditorNavbar() {
     unpublish,
     remove,
   } = useLeadMagnetEditorContext();
+
+  const {save: saveProfile}= useProfileEditorContext();
+
 
   const [editing, setEditing] = React.useState(false);
   const [saving, setSaving] = React.useState(false);
@@ -49,6 +53,7 @@ function LeadMagnetEditorNavbar() {
     setSaving(true);
     try {
       await saveLeadMagnet();
+      await saveProfile();
       toast.success("Saved!");
     } catch (error) {
       console.log(error);

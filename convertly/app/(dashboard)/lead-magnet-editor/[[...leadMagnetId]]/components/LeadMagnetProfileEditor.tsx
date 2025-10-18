@@ -10,8 +10,11 @@ export default function LeadMagnetProfileEditor() {
         <h1 className="mb-4 text-3xl font-bold text-blue-600">
           Profile Editor
         </h1>
-        {/* to do: image uplolad */}
-        {/* */}
+        <div className="mb-4">
+          <UploadButton
+          endpoint="imageUploader"
+          alert("Upload completed")}
+        </div>
         <div className="mb-4">
           <label className="mb-2 block text-sm font-bold text-gray-700">
             Title
