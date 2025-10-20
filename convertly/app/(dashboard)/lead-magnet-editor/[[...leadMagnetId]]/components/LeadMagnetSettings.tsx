@@ -12,7 +12,7 @@ export default function LeadMagnetSettings() {
           Settings
         </h1>
             <label className="mb-2 block text-sm font-bold text-gray-700">
-                Title
+                URL Slug
             </label>
                 <input
                     type="text"
