@@ -6,6 +6,7 @@ const isPublicRoute = createRouteMatcher([
   '/sign-up(.*)',
   '/api/lead-magnet',
   '/api/lead-magnet/publish',
+  '/api/uploadthing(.*)',
 ])
 
 export default clerkMiddleware(async (auth, req) => {

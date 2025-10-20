@@ -5,9 +5,9 @@ import React from 'react'
 export default function LeadMagnetEmailEditor() {
     const { edittedLeadMagnet, setEdittedLeadMagnet } = useLeadMagnetEditorContext()
   return (
-    <div className="flex h-full flex-row border-t-2 border-gray-200">
+    <div className="flex h-full flex-row border-gray-200">
       <div className="m-8 flex w-1/2 flex-col">
-        <h1 className="mb-4 text-3xl font-bold text-blue-600">
+             <h1 className="mb-4 w-fit bg-gradient-to-r from-sky-500 to-blue-600 bg-clip-text text-3xl font-bold text-transparent">
           Email Capture Editor
         </h1>
         <div className="mb-4">

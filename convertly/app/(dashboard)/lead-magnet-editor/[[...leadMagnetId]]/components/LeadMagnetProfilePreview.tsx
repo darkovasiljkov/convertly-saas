@@ -15,7 +15,7 @@ function LeadMagnetProfilePreview({ profile }: LeadMagnetProfileEditorProps) {
           alt="Profile Picture"
           height={300}
           width={300}
-          className="mx-auto mb-3 drop-shadow-lg"
+          className="mx-auto mb-3 drop-shadow-lg rounded-full"
         />
       )}
       <h1 className="text-center text-2xl font-semibold text-gray-800">
