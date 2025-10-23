@@ -10,6 +10,7 @@ import {
 import React from "react";
 import dayjs from "dayjs";
 import { Lead } from "@/lib/generated/prisma";
+import Link from "next/link";
 
 function LeadsTable({ leads }: { leads: Lead[] }) {
   return (
@@ -19,7 +20,7 @@ function LeadsTable({ leads }: { leads: Lead[] }) {
           <TableRow>
             <TableHead className="text-lg">Name</TableHead>
             <TableHead className="text-lg">Email</TableHead>
-            <TableHead className="text-lg">Signup Date</TableHead>
+            <TableHead className="text-lg">SignUp Date</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
@@ -35,7 +36,9 @@ function LeadsTable({ leads }: { leads: Lead[] }) {
         </TableBody>
       </Table>
       {leads.length === 0 && (
-        <div className="text-center m-5 font-bold">No Leads Found</div>
+        <div className="text-center m-5 font-bold">No Leads Found
+        <span> 
+         <Link href='/lead-magnets' className="text-blue-500 float-right">(Get Back)</Link></span></div>
       )}
     </>
   );

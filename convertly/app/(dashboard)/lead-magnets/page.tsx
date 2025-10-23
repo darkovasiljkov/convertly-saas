@@ -1,5 +1,5 @@
 import { auth } from "@clerk/nextjs/server";
-import { prismadb } from "../../../lib/prismadb";
+import { prismadb } from "@/lib/prismadb";
 import React from "react";
 import LeadMagnetsContainer from "./components/LeadMagnetsContainer";
 
