@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import Link from "next/link";
 import { useProfileEditorContext } from "@/context/ProfileEditorContext";
+import AccountContainer from "@/app/(dashboard)/account/components/AccountContainer";
 
 function LeadMagnetEditorNavbar() {
   const router = useRouter();
@@ -21,7 +22,7 @@ function LeadMagnetEditorNavbar() {
     remove,
   } = useLeadMagnetEditorContext();
 
-  const {save: saveProfile}= useProfileEditorContext();
+  const {save: saveProfile, account}= useProfileEditorContext();
 
 
   const [editing, setEditing] = React.useState(false);
@@ -163,7 +164,7 @@ function LeadMagnetEditorNavbar() {
               {unpublishing ? "Unpublishing..." : "Unpublish"}
             </Button>
             (
-              <Link href={`/lm/test/${edittedLeadMagnet.slug}`}>
+              <Link href={`/lm/${account?.username}/${edittedLeadMagnet.slug}`}>
                 <Button variant="outline">View Published</Button>
               </Link>
             )

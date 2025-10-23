@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Profile } from "@/lib/generated/prisma";
+import { Account, Profile } from "@/lib/generated/prisma";
 import toast from "react-hot-toast";
 import {
   Dispatch,
@@ -10,7 +10,6 @@ import {
   useState,
 } from "react"
 import axios from "axios";
-import { useRouter } from "next/navigation";
 
 import { useAuth } from '@clerk/nextjs';
 
@@ -28,6 +27,7 @@ interface ProfileEditorContextState {
   edittedProfile: Profile;
   setEdittedProfile: Dispatch<SetStateAction<Profile>>;
   save: () => Promise<void>;
+  account: Account | null;
 }
 
 const ProfileEditorContext =
@@ -39,6 +39,7 @@ export const ProfileEditorContextProvider = ({
   children: ReactNode;
 }) => {
         const { userId } = useAuth();
+        const [account, setAccount] = useState<Account | null>(null);
 
   const [edittedProfile, setEdittedProfile] =
     useState<Profile>(DEFAULT_PROFILE);
@@ -62,6 +63,19 @@ export const ProfileEditorContextProvider = ({
 
             fetchProfile();
             }, [userId]);
+          
+    useEffect(() => {
+      
+          axios.get('/api/account')
+          .then((resp) => {
+            if(resp.data.success)
+            {
+              setAccount(resp.data.data);
+            }
+            else
+              setAccount(null);
+          })
+        }, []);
 
 
   const save = async () => {
@@ -91,6 +105,7 @@ export const ProfileEditorContextProvider = ({
         edittedProfile,
         setEdittedProfile,
         save,
+        account
       }}
     >
       {children}

@@ -17,10 +17,10 @@ function LeadMagnetEmailCaptureModal({
   return (
     <div className="fixed inset-0 z-10 overflow-y-auto">
       <div className="flex min-h-screen items-center justify-center bg-black/20">
-        <div className="transform overflow-hidden rounded-lg bg-white px-4 pb-4 pt-5 text-left shadow-2xl sm:w-full sm:max-w-lg sm:p-6">
+        <div className="relative transform overflow-hidden rounded-lg bg-white px-4 pb-4 pt-5 text-left shadow-2xl sm:w-full sm:max-w-lg sm:p-6">
           <button
             onClick={() => setShowEmailCaptureModal(false)}
-            className="absolute right-2 top-2 text-2xl"
+             className="absolute right-2 top-2 text-gray-500 hover:text-black cursor-pointer text-2xl font-bold"
           >
             &times;
           </button>

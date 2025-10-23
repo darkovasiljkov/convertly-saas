@@ -11,7 +11,7 @@ interface LeadMagnetNotFoundProps{
 
 function LeadMagnetNotFound( { returnLink }: LeadMagnetNotFoundProps ) {
     return (
-        <div className="flex flex-col items-center justify-center h-full w-full gap-y-3">
+        <div className="flex flex-col items-center justify-center h-full w-full gap-y-3 text-blue-500">
             <h1 className="text-2xl font-bold mb-4">Lead Magnet Not Found</h1>
 
             <Link href={returnLink}>
