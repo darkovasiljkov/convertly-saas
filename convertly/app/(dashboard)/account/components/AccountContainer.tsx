@@ -2,7 +2,8 @@
 
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { Account } from '@/lib/generated/prisma';
+import { Account, Subscription } from '@/lib/generated/prisma';
+import { getPayingStatus } from '@/utils/stripe';
 import axios from 'axios';
 import React from 'react'
 import { useState } from 'react';
@@ -11,14 +12,17 @@ import toast from 'react-hot-toast';
 
 interface AccountContainerProps {
     account: Account;
+    subscription: Subscription | null;
 }
-export default function AccountContainer({account}: AccountContainerProps) {
+export default function AccountContainer({account, subscription}: AccountContainerProps) {
 
-      const [username, setUsername] = useState(account.username);
+  const [isActive, setIsActive] = useState(getPayingStatus(subscription));
 
-       const [isSaving, setIsSaving] = useState(false);
+  const [username, setUsername] = useState(account.username);
 
-        const updateUsername = async () => {
+  const [isSaving, setIsSaving] = useState(false);
+
+  const updateUsername = async () => {
     setIsSaving(true);
     axios
       .put("/api/account", { username })
@@ -50,8 +54,29 @@ export default function AccountContainer({account}: AccountContainerProps) {
       });
   };
 
+  const handleStripe = async () => {
+    try {
+      const response = await axios.get("/api/stripe");
+
+      if (response.data.url)
+      {
+        window.location.href = response.data.url;
+      }
+      else
+      {
+        console.error("No URL returned from Stripe API");
+        toast.error("Something went wrong with Stripe. Please try again.");
+      }
+    }
+    catch (error)
+    {
+      console.error("No URL returned from Stripe API");
+      toast.error("Something went wrong with Stripe. Please try again.");
+    }
+  }
+
  return (
-    <div className="flex h-full w-full flex-col m-8 gap-y-4 items-center justify-center">
+    <div className="flex h-full w-full flex-col m-8 gap-y-4 justify-center">
       <h1 className="text-2xl font-semibold text-gray-700">Account Home</h1>
       <hr />
       <div className="w-fit">
@@ -84,9 +109,9 @@ export default function AccountContainer({account}: AccountContainerProps) {
       <div className="flex flex-row gap-x-2">
         <p className="font-semibold text-gray-700">Status:</p>
       </div>
-      {/* <Button onClick={handleStripe} variant="outline" className="w-fit">
-        {isActive ? "Manage Subscription" : "Upgrade to Pro"}
-      </Button> */}
+      <Button variant="outline" className="w-fit">
+        {isActive ? "Manage Subscription" : "Upgrade to Premium"}
+      </Button>
     </div>
   );
 }

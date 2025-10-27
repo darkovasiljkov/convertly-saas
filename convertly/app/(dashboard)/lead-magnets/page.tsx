@@ -29,6 +29,19 @@ const getLeads = async (userId: string) => {
   }
 };
 
+const getSubscription = async (userId: string) => {
+  try {
+    const subscription = await prismadb.subscription.findUnique({
+      where: { userId },
+    });
+
+    return subscription;
+  } catch (error) {
+    console.error(error);
+    return null;
+  }
+};
+
 export default async function LeadMagnetsPage() {
   const { userId} = await auth();
 
@@ -38,12 +51,14 @@ export default async function LeadMagnetsPage() {
 
   const leadMagnetsRequest = getLeadMagnets(userId);
   const leadsRequest = getLeads(userId);
+  const subscriptionRequest = getSubscription(userId);
 
-  const [leadMagnets, leads] = await Promise.all([
+  const [leadMagnets, leads, subscription] = await Promise.all([
     leadMagnetsRequest,
-    leadsRequest
+    leadsRequest,
+    subscriptionRequest
   ]);
 
-  return <LeadMagnetsContainer leadMagnets={leadMagnets} leads={leads} />;
+  return <LeadMagnetsContainer leadMagnets={leadMagnets} leads={leads} subscription={subscription} />;
   
 }

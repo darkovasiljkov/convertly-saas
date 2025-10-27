@@ -25,17 +25,24 @@ let account = await prismadb.account.findUnique({where: {userId}});
             }
         });
     }
-
     return account;
 
 };
 
+const fetchSubscription = (userId: string) => {
+    return prismadb.subscription.findUnique({
+      where: { userId }
+    });
+  }
+
 const {userId} = await auth();
 
 if (!userId) throw new Error("User not found!");
+ 
+const [account, subscription] = await Promise.all([
+  fetchAccounts(userId),
+  fetchSubscription(userId),
+]);
+  return <AccountContainer account={account} subscription={subscription} />;
+};
 
-const account = await fetchAccounts(userId);
-  return (
-    <AccountContainer account={account} />
-  )
-}
