@@ -1,11 +1,10 @@
-import Stripe from "stripe";
-import dayjs from "dayjs";
 import { Subscription } from "@/lib/generated/prisma";
+import dayjs from "dayjs";
+import Stripe from "stripe";
 
-
-export const stripe = new Stripe(process.env.STRIPE_SECRET_KEY ?? "", {
-apiVersion: "2025-09-30.clover",
-typescript: true,
+export const stripe = new Stripe(process.env.STRIPE_API_KEY ?? "", {
+  apiVersion: "2023-10-16",
+  typescript: true,
 });
 
 export const getPayingStatus = (subscription: Subscription | null): boolean => {

@@ -76,7 +76,7 @@ export default function AccountContainer({account, subscription}: AccountContain
   }
 
  return (
-    <div className="flex h-full w-full flex-col m-8 gap-y-4 justify-center">
+    <div className="flex h-full w-full flex-col m-8 gap-y-4">
       <h1 className="text-2xl font-semibold text-gray-700">Account Home</h1>
       <hr />
       <div className="w-fit">
@@ -107,9 +107,10 @@ export default function AccountContainer({account, subscription}: AccountContain
       <hr />
       <h2 className="text-xl text-gray-700">Subscription</h2>
       <div className="flex flex-row gap-x-2">
-        <p className="font-semibold text-gray-700">Status:</p>
+        <p className="font-semibold text-gray-700">Plan:</p>
+        <p className="text-gray-700">{isActive ? "Premium" : "Free"}</p>
       </div>
-      <Button variant="outline" className="w-fit">
+      <Button onClick={handleStripe} variant="outline" className="w-fit">
         {isActive ? "Manage Subscription" : "Upgrade to Premium"}
       </Button>
     </div>

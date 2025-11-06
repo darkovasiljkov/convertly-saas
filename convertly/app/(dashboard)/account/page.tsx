@@ -1,4 +1,4 @@
-import { prismadb } from '@/lib/prismadb'
+import { prismadb } from "@/lib/prismadb";
 import { auth, currentUser} from '@clerk/nextjs/server';
 import React from 'react'
 import { generateFromEmail } from "unique-username-generator";
