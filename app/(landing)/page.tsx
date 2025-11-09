@@ -1,5 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { BarChart3, Briefcase, Check, Crown, FileText, Github, GraduationCap, Laptop, Link2, Linkedin, Mail, MessageSquare, Palette, Rocket, Settings, Share2, ShoppingCart, Target, Twitter, User, Users, Zap } from "lucide-react"
+import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
@@ -11,9 +13,10 @@ function LandingPage() {
         <Features />
         <HowItWorks />
         <UseCases />
-        <SocialProof />
+        <Pricing />
         <CTA />
       </main>
+      <Footer />
     </div>
   );
 }
@@ -39,8 +42,7 @@ const Hero = () => {
       </h1>
 
       <p className="mt-6 max-w-2xl text-base text-gray-600 sm:text-lg md:text-xl">
-        Convertly helps you engage your audience with interactive AI experiences
-        that capture leads and guide them seamlessly to your products, courses, or services—no coding required.
+          Create interactive AI-powered lead magnets that engage your audience, capture emails, and guide them to your offers.
       </p>
 
       <div className="mt-8 flex flex-col gap-4 sm:flex-row">
@@ -80,124 +82,173 @@ const Hero = () => {
   );
 };
 
-const Features = () => {
+const Features = () =>{
   const features = [
     {
-      icon: "✨",
+      icon: MessageSquare,
       title: "AI-Powered Conversations",
-      description: "Your lead magnets engage visitors with intelligent, personalized conversations that understand their needs and guide them naturally."
+      description: "Your lead magnets engage visitors with intelligent, personalized conversations that understand their needs and guide them naturally.",
+      color: "sky"
     },
     {
-      icon: "🎯",
+      icon: Target,
       title: "Smart Lead Capture",
-      description: "Capture emails at the perfect moment when visitors are most engaged, dramatically improving conversion rates."
+      description: "Capture emails at the perfect moment when visitors are most engaged, dramatically improving conversion rates.",
+      color: "blue"
     },
     {
-      icon: "🎨",
+      icon: Palette,
       title: "Fully Customizable",
-      description: "Match your brand with custom colors, logos, messaging, and AI personalities—no design skills needed."
+      description: "Match your brand with custom colors, logos, messaging, and AI personalities—no design skills needed.",
+      color: "sky"
     },
     {
-      icon: "📊",
+      icon: BarChart3,
       title: "Analytics Dashboard",
-      description: "Track performance, conversion rates, and visitor engagement with real-time analytics and insights."
+      description: "Track performance, conversion rates, and visitor engagement with real-time analytics and insights.",
+      color: "blue"
     },
     {
-      icon: "⚡",
+      icon: Zap,
       title: "Instant Setup",
-      description: "Create and launch your first AI lead magnet in minutes. Just add your content, customize, and share your unique link."
+      description: "Create and launch your first AI lead magnet in minutes. Just add your content, customize, and share your unique link.",
+      color: "sky"
     },
     {
-      icon: "🔗",
+      icon: Link2,
       title: "Easy Integration",
-      description: "Share your lead magnet anywhere—embed on your website, add to social bios, or use in email campaigns."
+      description: "Share your lead magnet anywhere—embed on your website, add to social bios, or use in email campaigns.",
+      color: "blue"
     }
   ];
 
   return (
-    <section className="w-full bg-gradient-to-b from-white to-sky-50 px-4 py-16 md:py-24">
+    <section id="features" className="w-full bg-white px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
       <div className="mx-auto max-w-7xl">
         <div className="mb-16 text-center">
-          <h2 className="text-3xl font-bold sm:text-4xl md:text-5xl">
+          <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl lg:text-5xl">
             Everything You Need to
-            <span className="bg-gradient-to-r from-sky-400 to-blue-500 bg-clip-text text-transparent"> Convert Visitors</span>
+            <span className="bg-gradient-to-r from-sky-500 to-blue-600 bg-clip-text text-transparent"> Convert Visitors</span>
           </h2>
-          <p className="mt-4 text-lg text-gray-600 md:text-xl">
+          <p className="mt-4 text-lg text-gray-600 sm:text-xl">
             Powerful features that make lead generation effortless
           </p>
         </div>
 
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {features.map((feature, index) => (
-            <Card key={index} className="border-sky-100 bg-white p-6 transition-all hover:shadow-lg hover:scale-105">
-              <div className="mb-4 text-4xl">{feature.icon}</div>
-              <h3 className="mb-2 text-xl font-semibold text-gray-900">{feature.title}</h3>
-              <p className="text-gray-600">{feature.description}</p>
-            </Card>
-          ))}
+        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          {features.map((feature, index) => {
+            const Icon = feature.icon;
+            return (
+              <Card
+                key={index}
+                className="group border-2 border-gray-100 bg-white p-8 transition-all hover:border-sky-200 hover:shadow-xl hover:-translate-y-1"
+              >
+                <div className={`mb-6 inline-flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-to-r from-${feature.color}-100 to-${feature.color}-200 transition-transform group-hover:scale-110`}>
+                  <Icon className={`h-7 w-7 text-${feature.color}-600`} />
+                </div>
+                <h3 className="mb-3 text-xl font-semibold text-gray-900">
+                  {feature.title}
+                </h3>
+                <p className="text-gray-600 leading-relaxed">
+                  {feature.description}
+                </p>
+              </Card>
+            );
+          })}
         </div>
       </div>
     </section>
   );
-};
+}
+
 
 const HowItWorks = () => {
   const steps = [
     {
       number: "1",
+      icon: User,
       title: "Create Your Profile",
       description: "Add your brand details, upload your logo, and customize your lead magnet's appearance to match your style."
     },
     {
       number: "2",
+      icon: Settings,
       title: "Configure AI Behavior",
       description: "Set up how your AI assistant will interact with visitors. Define its personality, knowledge base, and conversation goals."
     },
     {
       number: "3",
+      icon: Mail,
       title: "Capture Emails",
       description: "Design your email capture flow—choose when and how to ask for contact information for maximum conversions."
     },
     {
       number: "4",
+      icon: Share2,
       title: "Share & Convert",
       description: "Get your unique link and share it everywhere. Watch as your AI lead magnet converts visitors into qualified leads 24/7."
     }
   ];
 
   return (
-    <section id="how-it-works" className="w-full px-4 py-16 md:py-24">
+    <section id="how-it-works" className="w-full bg-gradient-to-b from-sky-50 to-white px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
       <div className="mx-auto max-w-7xl">
         <div className="mb-16 text-center">
-          <h2 className="text-3xl font-bold sm:text-4xl md:text-5xl">
+          <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl lg:text-5xl">
             Launch Your Lead Magnet in
-            <span className="bg-gradient-to-r from-sky-400 to-blue-500 bg-clip-text text-transparent"> 4 Simple Steps</span>
+            <span className="bg-gradient-to-r from-sky-500 to-blue-600 bg-clip-text text-transparent"> 4 Simple Steps</span>
           </h2>
-          <p className="mt-4 text-lg text-gray-600 md:text-xl">
+          <p className="mt-4 text-lg text-gray-600 sm:text-xl">
             From idea to live lead magnet in minutes
           </p>
         </div>
 
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
-          {steps.map((step, index) => (
-            <div key={index} className="relative">
-              {index < steps.length - 1 && (
-                <div className="absolute left-1/2 top-16 hidden h-0.5 w-full bg-gradient-to-r from-sky-300 to-blue-400 lg:block" />
-              )}
-              <div className="relative flex flex-col items-center text-center">
-                <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-r from-sky-400 to-blue-500 text-2xl font-bold text-white shadow-lg">
-                  {step.number}
+        <div className="relative">
+          <div className="absolute left-1/2 top-0 hidden h-full w-1 -translate-x-1/2 bg-gradient-to-b from-sky-200 via-blue-300 to-sky-200 lg:block" />
+
+          <div className="space-y-12">
+            {steps.map((step, index) => {
+              const Icon = step.icon;
+              const isEven = index % 2 === 0;
+
+              return (
+                <div
+                  key={index}
+                  className={`relative flex flex-col items-center gap-8 lg:flex-row ${
+                    isEven ? "" : "lg:flex-row-reverse"
+                  }`}
+                >
+                  <div className={`w-full lg:w-5/12 ${isEven ? "lg:text-right" : "lg:text-left"}`}>
+                    <div className={`inline-block ${isEven ? "lg:float-right" : "lg:float-left"} max-w-md`}>
+                      <div className="mb-4 inline-flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-r from-sky-500 to-blue-600 shadow-lg">
+                        <Icon className="h-8 w-8 text-white" />
+                      </div>
+                      <h3 className="mb-3 text-2xl font-bold text-gray-900">
+                        {step.title}
+                      </h3>
+                      <p className="text-gray-600 leading-relaxed">
+                        {step.description}
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="relative z-10 flex h-20 w-20 shrink-0 items-center justify-center rounded-full border-4 border-white bg-gradient-to-r from-sky-500 to-blue-600 text-3xl font-bold text-white shadow-xl lg:mx-8">
+                    {step.number}
+                  </div>
+
+                  <div className="w-full lg:w-5/12" />
                 </div>
-                <h3 className="mb-2 text-xl font-semibold text-gray-900">{step.title}</h3>
-                <p className="text-gray-600">{step.description}</p>
-              </div>
-            </div>
-          ))}
+              );
+            })}
+          </div>
         </div>
 
-        <div className="mt-12 text-center">
+        <div className="mt-16 text-center">
           <Link href="/lead-magnets">
-            <Button size="lg" className="bg-gradient-to-r from-sky-500 to-blue-600 px-8 py-6 text-lg font-semibold shadow-lg transition-all hover:shadow-xl hover:scale-105">
+            <Button
+              size="lg"
+              className="h-12 bg-gradient-to-r from-sky-500 to-blue-600 px-8 text-base font-semibold shadow-lg transition-all hover:shadow-xl hover:scale-105"
+            >
               Start Building Now
             </Button>
           </Link>
@@ -205,101 +256,87 @@ const HowItWorks = () => {
       </div>
     </section>
   );
-};
+}
+
 
 const UseCases = () => {
   const useCases = [
     {
+      icon: GraduationCap,
       title: "Course Creators",
       description: "Guide potential students through your course offerings with an AI assistant that answers questions and captures interested leads.",
-      gradient: "from-sky-400 to-blue-500"
-    },
-    {
-      title: "Coaches & Consultants",
-      description: "Qualify leads automatically by having your AI assess their needs and collect information before booking discovery calls.",
-      gradient: "from-blue-400 to-sky-500"
-    },
-    {
-      title: "SaaS Companies",
-      description: "Help visitors understand your product features and pricing while capturing qualified leads for your sales team.",
       gradient: "from-sky-500 to-blue-600"
     },
     {
-      title: "Content Creators",
-      description: "Turn your blog traffic into subscribers with interactive content experiences that provide value and build your email list.",
+      icon: Users,
+      title: "Coaches & Consultants",
+      description: "Qualify leads automatically by having your AI assess their needs and collect information before booking discovery calls.",
       gradient: "from-blue-500 to-sky-600"
     },
     {
-      title: "Service Providers",
-      description: "Pre-qualify clients by gathering project details and requirements through conversational AI before they reach out.",
-      gradient: "from-sky-400 to-blue-500"
+      icon: Laptop,
+      title: "SaaS Companies",
+      description: "Help visitors understand your product features and pricing while capturing qualified leads for your sales team.",
+      gradient: "from-sky-600 to-blue-700"
     },
     {
+      icon: FileText,
+      title: "Content Creators",
+      description: "Turn your blog traffic into subscribers with interactive content experiences that provide value and build your email list.",
+      gradient: "from-blue-600 to-sky-700"
+    },
+    {
+      icon: Briefcase,
+      title: "Service Providers",
+      description: "Pre-qualify clients by gathering project details and requirements through conversational AI before they reach out.",
+      gradient: "from-sky-500 to-blue-600"
+    },
+    {
+      icon: ShoppingCart,
       title: "E-commerce Brands",
       description: "Create product recommendation experiences that guide shoppers and capture emails for abandoned cart recovery.",
-      gradient: "from-blue-400 to-sky-500"
+      gradient: "from-blue-500 to-sky-600"
     }
   ];
 
   return (
-    <section className="w-full bg-gradient-to-b from-sky-50 to-white px-4 py-16 md:py-24">
+    <section id="use-cases" className="w-full bg-white px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
       <div className="mx-auto max-w-7xl">
         <div className="mb-16 text-center">
-          <h2 className="text-3xl font-bold sm:text-4xl md:text-5xl">
+          <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl lg:text-5xl">
             Built For Every
-            <span className="bg-gradient-to-r from-sky-400 to-blue-500 bg-clip-text text-transparent"> Business Type</span>
+            <span className="bg-gradient-to-r from-sky-500 to-blue-600 bg-clip-text text-transparent"> Business Type</span>
           </h2>
-          <p className="mt-4 text-lg text-gray-600 md:text-xl">
+          <p className="mt-4 text-lg text-gray-600 sm:text-xl">
             No matter your industry, Convertly helps you capture more leads
           </p>
         </div>
 
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {useCases.map((useCase, index) => (
-            <Card key={index} className="group border-sky-100 bg-white p-6 transition-all hover:shadow-xl hover:scale-105">
-              <div className={`mb-4 inline-block rounded-lg bg-gradient-to-r ${useCase.gradient} px-4 py-2 text-sm font-semibold text-white`}>
-                {useCase.title}
-              </div>
-              <p className="text-gray-600">{useCase.description}</p>
-            </Card>
-          ))}
+        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          {useCases.map((useCase, index) => {
+            const Icon = useCase.icon;
+            return (
+              <Card
+                key={index}
+                className="group overflow-hidden border-2 border-gray-100 bg-white p-8 transition-all hover:border-sky-200 hover:shadow-xl hover:-translate-y-1"
+              >
+                <div className={`mb-6 inline-flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-to-r ${useCase.gradient} transition-transform group-hover:scale-110`}>
+                  <Icon className="h-7 w-7 text-white" />
+                </div>
+                <h3 className="mb-3 text-xl font-bold text-gray-900">
+                  {useCase.title}
+                </h3>
+                <p className="text-gray-600 leading-relaxed">
+                  {useCase.description}
+                </p>
+              </Card>
+            );
+          })}
         </div>
       </div>
     </section>
   );
-};
-
-const SocialProof = () => {
-  return (
-    <section className="w-full px-4 py-16 md:py-24">
-      <div className="mx-auto max-w-7xl">
-        <div className="rounded-2xl bg-gradient-to-r from-sky-500 to-blue-600 p-12 text-center text-white shadow-2xl">
-          <h2 className="mb-4 text-3xl font-bold sm:text-4xl md:text-5xl">
-            Join Thousands of Businesses
-          </h2>
-          <p className="mb-8 text-xl opacity-90">
-            Already converting more leads with Convertly
-          </p>
-
-          <div className="grid gap-8 md:grid-cols-3">
-            <div className="rounded-lg bg-white/10 p-6 backdrop-blur-sm">
-              <div className="mb-2 text-4xl font-bold">10,000+</div>
-              <div className="text-sky-100">Lead Magnets Created</div>
-            </div>
-            <div className="rounded-lg bg-white/10 p-6 backdrop-blur-sm">
-              <div className="mb-2 text-4xl font-bold">2M+</div>
-              <div className="text-sky-100">Conversations Started</div>
-            </div>
-            <div className="rounded-lg bg-white/10 p-6 backdrop-blur-sm">
-              <div className="mb-2 text-4xl font-bold">45%</div>
-              <div className="text-sky-100">Average Conversion Rate</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-};
+}
 
 const CTA = () => {
   return (
@@ -350,3 +387,298 @@ const CTA = () => {
     </section>
   );
 };
+
+const Footer = () => {
+  const navigation = {
+    product: [
+      { name: "Features", href: "#features" },
+      { name: "How It Works", href: "#how-it-works" },
+      { name: "Pricing", href: "#pricing" },
+      { name: "Use Cases", href: "#use-cases" },
+    ],
+    company: [
+      { name: "About", href: "/about" },
+      { name: "Blog", href: "/blog" },
+      { name: "Careers", href: "/careers" },
+      { name: "Contact", href: "/contact" },
+    ],
+    resources: [
+      { name: "Documentation", href: "/docs" },
+      { name: "Help Center", href: "/help" },
+      { name: "API Reference", href: "/api" },
+      { name: "Templates", href: "/templates" },
+    ],
+    legal: [
+      { name: "Privacy", href: "/privacy" },
+      { name: "Terms", href: "/terms" },
+      { name: "Security", href: "/security" },
+    ],
+  };
+
+  return (
+    <footer className="border-t border-gray-200 bg-white">
+      <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
+        <div className="xl:grid xl:grid-cols-3 xl:gap-8">
+          <div className="space-y-6">
+            <Image
+              src="/ConvertlyTransparent_Logo.png"
+              alt="Convertly Logo"
+              width={140}
+              height={140}
+              className="object-contain"
+            />
+            <p className="text-sm text-gray-600 max-w-xs">
+              Create AI-powered lead magnets that convert visitors into qualified leads—no coding required.
+            </p>
+             <p className="text-sm text-sky-600 max-w-xs">
+              Built with ❤️ by Vasiljkov Darko.
+            </p>
+            <div className="flex space-x-4">
+              <a href="#" className="text-gray-400 hover:text-sky-600 transition-colors">
+                <span className="sr-only">Twitter</span>
+                <Twitter className="h-5 w-5" />
+              </a>
+              <a href="#" className="text-gray-400 hover:text-sky-600 transition-colors">
+                <span className="sr-only">LinkedIn</span>
+                <Linkedin className="h-5 w-5" />
+              </a>
+              <a href="#" className="text-gray-400 hover:text-sky-600 transition-colors">
+                <span className="sr-only">GitHub</span>
+                <Github className="h-5 w-5" />
+              </a>
+              <a href="#" className="text-gray-400 hover:text-sky-600 transition-colors">
+                <span className="sr-only">Email</span>
+                <Mail className="h-5 w-5" />
+              </a>
+            </div>
+          </div>
+
+          <div className="mt-12 grid grid-cols-2 gap-8 xl:col-span-2 xl:mt-0">
+            <div className="md:grid md:grid-cols-2 md:gap-8">
+              <div>
+                <h3 className="text-sm font-semibold text-gray-900 tracking-wider uppercase">
+                  Product
+                </h3>
+                <ul className="mt-4 space-y-3">
+                  {navigation.product.map((item) => (
+                    <li key={item.name}>
+                      <a
+                        href={item.href}
+                        className="text-sm text-gray-600 hover:text-sky-600 transition-colors"
+                      >
+                        {item.name}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="mt-12 md:mt-0">
+                <h3 className="text-sm font-semibold text-gray-900 tracking-wider uppercase">
+                  Company
+                </h3>
+                <ul className="mt-4 space-y-3">
+                  {navigation.company.map((item) => (
+                    <li key={item.name}>
+                      <Link
+                        href={item.href}
+                        className="text-sm text-gray-600 hover:text-sky-600 transition-colors"
+                      >
+                        {item.name}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+            <div className="md:grid md:grid-cols-2 md:gap-8">
+              <div>
+                <h3 className="text-sm font-semibold text-gray-900 tracking-wider uppercase">
+                  Resources
+                </h3>
+                <ul className="mt-4 space-y-3">
+                  {navigation.resources.map((item) => (
+                    <li key={item.name}>
+                      <Link
+                        href={item.href}
+                        className="text-sm text-gray-600 hover:text-sky-600 transition-colors"
+                      >
+                        {item.name}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="mt-12 md:mt-0">
+                <h3 className="text-sm font-semibold text-gray-900 tracking-wider uppercase">
+                  Legal
+                </h3>
+                <ul className="mt-4 space-y-3">
+                  {navigation.legal.map((item) => (
+                    <li key={item.name}>
+                      <Link
+                        href={item.href}
+                        className="text-sm text-gray-600 hover:text-sky-600 transition-colors"
+                      >
+                        {item.name}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-12 border-t border-gray-200 pt-8">
+          <p className="text-sm text-gray-500 text-center">
+            &copy; {new Date().getFullYear()} Convertly. All rights reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
+  );
+}
+
+const Pricing = () => {
+ const plans = [
+    {
+      name: "Free",
+      icon: Zap,
+      price: "0",
+      description: "Perfect for getting started",
+      features: [
+        "2 AI Lead Magnet",
+        "100 conversations/month",
+        "Basic customization",
+        "Email capture",
+        "Analytics dashboard",
+        "Community support"
+      ],
+      cta: "Start Free Plan",
+      popular: false,
+      gradient: "from-gray-500 to-gray-600"
+    },
+    {
+      name: "Premium",
+      icon: Rocket,
+      price: "10",
+      description: "For growing businesses or individuals",
+      features: [
+        "Unlimited AI Lead Magnets",
+        "2,000 conversations/month",
+        "Advanced customization",
+        "Custom branding",
+        "Priority support",
+        "Integration webhooks"
+      ],
+      cta: "Start Premium Plan",
+      popular: true,
+      gradient: "from-sky-500 to-blue-600"
+    },
+    {
+      name: "Business",
+      icon: Crown,
+      description: "For scaling companies",
+      features: [
+        "Unlimited Lead Magnets",
+        "10,000 conversations/month",
+        "White-label options",
+        "Custom domain",
+        "Dedicated support",
+        "API access",
+        "Team collaboration",
+        "Custom integrations",
+        "SLA guarantee"
+      ],
+      cta: "Book a call with CEO",
+      popular: false,
+      gradient: "from-blue-600 to-sky-700"
+    }
+  ];
+
+  return (
+    <section id="pricing" className="w-full bg-gradient-to-b from-white to-sky-50 px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
+      <div className="mx-auto max-w-7xl">
+        <div className="mb-16 text-center">
+          <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl lg:text-5xl">
+            Simple, Transparent
+            <span className="bg-gradient-to-r from-sky-500 to-blue-600 bg-clip-text text-transparent"> Pricing</span>
+          </h2>
+          <p className="mt-4 text-lg text-gray-600 sm:text-xl">
+            Choose the perfect plan for your business. Upgrade or downgrade anytime.
+          </p>
+        </div>
+
+        <div className="grid gap-8 lg:grid-cols-3">
+          {plans.map((plan, index) => {
+            const Icon = plan.icon;
+            return (
+              <Card
+                key={index}
+                className={`relative overflow-hidden border-2 bg-white p-8 transition-all hover:shadow-2xl ${
+                  plan.popular ? "border-sky-500 shadow-xl scale-105" : "border-gray-200 hover:border-sky-300"
+                }`}
+              >
+                {plan.popular && (
+                  <div className="absolute right-0 top-0 bg-gradient-to-r from-sky-500 to-blue-600 px-4 py-1 text-xs font-semibold text-white">
+                    MOST POPULAR
+                  </div>
+                )}
+
+                <div className="mb-6">
+                  <div className={`mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg bg-gradient-to-r ${plan.gradient}`}>
+                    <Icon className="h-6 w-6 text-white" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-gray-900">{plan.name}</h3>
+                  <p className="mt-2 text-sm text-gray-600">{plan.description}</p>
+                </div>
+
+                <div className="mb-6">
+                  <div className="flex items-baseline">
+                    {plan.name === "Business" ? (
+                      <span className="text-5xl font-bold tracking-tight text-gray-900">Contact us</span> 
+                      ) : (
+                    <span className="text-5xl font-bold tracking-tight text-gray-900">
+                      ${plan.price}
+                    </span>)}
+                         {plan.name === "Business" ? "" : (<span className="ml-1 text-xl font-medium text-gray-500">/month</span>)}
+                  </div>
+                </div>
+
+                <Link href="/account">
+                  <Button
+                    className={`mb-6 w-full ${
+                      plan.popular
+                        ? "bg-gradient-to-r from-sky-500 to-blue-600 shadow-lg hover:shadow-xl"
+                        : "bg-gray-900 hover:bg-gray-800"
+                    }`}
+                  >
+                    {plan.cta}
+                  </Button>
+                </Link>
+
+                <ul className="space-y-3">
+                  {plan.features.map((feature, featureIndex) => (
+                    <li key={featureIndex} className="flex items-start gap-3">
+                      <div className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-sky-100">
+                        <Check className="h-3 w-3 text-sky-600" />
+                      </div>
+                      <span className="text-sm text-gray-700">{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+              </Card>
+            );
+          })}
+        </div>
+
+        <div className="mt-12 text-center">
+          <Link href="/contact" className="mt-4 inline-block text-sm font-medium text-sky-600 hover:text-sky-700">
+            Need a custom plan? Contact us →
+          </Link>
+        </div>
+      </div>
+    </section>
+  );
+
+}
