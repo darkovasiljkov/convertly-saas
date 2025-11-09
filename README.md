@@ -1,19 +1,36 @@
-# Convertly 🔽
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-Skyrocket your outreach game with **Convertly** – an AI-powered lead magnet SaaS.   🚀  
+## Getting Started
 
-Create engaging resources like e-books, guides, and tips, then let an interactive chatbot capture emails and convert visitors into leads.
+First, run the development server:
 
-## Features
-- AI-powered message generation and personalization  
-- Smart conversation assistance for outreach  
-- Full-stack architecture with modern technologies  
-- Clean and intuitive user interface  
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
+```
 
-## Branding Logo 
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-<img width="160" height="40" alt="image" src="https://github.com/user-attachments/assets/96853179-f16e-4839-b492-508abfdc6321" />
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-## About
-Convertly is a full-stack SaaS platform that helps businesses attract and convert potential customers through interactive AI chatbots. It enables users to deliver engaging lead magnet content, collect emails for full access, and analyze interactions to optimize marketing strategies.
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
+## Learn More
+
+To learn more about Next.js, take a look at the following resources:
+
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+
+## Deploy on Vercel
+
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
