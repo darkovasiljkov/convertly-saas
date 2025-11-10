@@ -1,6 +1,8 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { BarChart3, Briefcase, Check, Crown, FileText, Github, GraduationCap, Laptop, Link2, Linkedin, Mail, MessageSquare, Palette, Rocket, Settings, Share2, ShoppingCart, Target, Twitter, User, Users, Zap } from "lucide-react"
+import { BarChart3, Briefcase, Check, Crown, FileText,
+ Github, GraduationCap, Laptop, Link2, 
+ Linkedin, Mail, MessageSquare, Palette, Rocket, Settings, Share2, ShoppingCart, Target, User, Users, X, Zap } from "lucide-react"
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -25,59 +27,60 @@ export default LandingPage;
 
 const Hero = () => {
   return (
-    <div className="mx-4 mb-16 mt-10 flex flex-1 flex-col items-center text-center sm:mb-14 md:mb-24 md:mt-24">
-      <div className="mb-4 inline-flex items-center rounded-full border border-sky-200 bg-sky-50 px-4 py-2 text-sm text-sky-700">
-        <span className="mr-2 flex h-2 w-2">
-          <span className="absolute inline-flex h-2 w-2 animate-ping rounded-full bg-sky-400 opacity-75"></span>
-          <span className="relative inline-flex h-2 w-2 rounded-full bg-sky-500"></span>
-        </span>
-        No coding required • AI-powered • Ready in minutes
-      </div>
+    <div className="mt-10 md:mt-24 mb-16 flex flex-col-reverse md:flex-row items-center md:items-start justify-between max-w-7xl mx-auto gap-8">
+      <div className="flex-1 text-center md:text-left">
+        <div className="mb-4 inline-flex items-center rounded-full border border-sky-200 bg-sky-50 px-4 py-2 text-sm text-sky-700">
+          <span className="mr-2 flex h-2 w-2 relative">
+            <span className="absolute inline-flex h-2 w-2 animate-ping rounded-full bg-sky-400 opacity-75"></span>
+            <span className="relative inline-flex h-2 w-2 rounded-full bg-sky-500"></span>
+          </span>
+          No coding required • AI-powered • Automate lead capture
+        </div>
 
-      <h1 className="max-w-4xl text-3xl font-extrabold leading-tight sm:text-5xl md:text-6xl">
-        Turn Your Content Into
-        <span className="bg-gradient-to-r from-sky-400 to-blue-500 bg-clip-text text-transparent">
-          {" "}AI-Powered Lead Magnets
-        </span>
-      </h1>
+        <h1 className="text-3xl font-extrabold leading-tight sm:text-5xl md:text-6xl max-w-lg">
+          Turn Your Content Into{" "}
+          <span className="bg-gradient-to-r from-sky-400 to-blue-500 bg-clip-text text-transparent">
+            AI-Powered Lead Magnets
+          </span>
+        </h1>
 
-      <p className="mt-6 max-w-2xl text-base text-gray-600 sm:text-lg md:text-xl">
+        <p className="mt-6 max-w-md text-base text-gray-600 sm:text-lg md:text-xl">
           Create interactive AI-powered lead magnets that engage your audience, capture emails, and guide them to your offers.
-      </p>
+        </p>
 
-      <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-        <Link href="/lead-magnets">
-          <Button size="lg" className="bg-gradient-to-r from-sky-500 to-blue-600 px-8 py-6 text-lg font-semibold shadow-lg transition-all hover:shadow-xl hover:scale-105">
-            Get Started Free
-          </Button>
-        </Link>
-        <Link href="#how-it-works">
-          <Button variant="outline" size="lg" className="border-sky-300 px-8 py-6 text-lg font-semibold text-sky-700 hover:bg-sky-50">
-            See How It Works
-          </Button>
-        </Link>
-      </div>
+        <div className="mt-8 flex flex-col gap-4 sm:flex-row">
+          <Link href="/lead-magnets">
+            <Button className="bg-gradient-to-r from-sky-500 to-blue-600 px-8 py-6 text-lg font-semibold shadow-lg transition-all hover:shadow-xl hover:scale-105">
+            Start For Free →
+            </Button>
+          </Link>
+          <Link href="#how-it-works">
+            <Button variant="outline" className="border-sky-300 px-8 py-6 text-lg font-semibold text-sky-700 hover:bg-sky-50">
+              See How It Works
+            </Button>
+          </Link>
+        </div>
 
-      <div className="mt-12 flex flex-wrap items-center justify-center gap-8 text-sm text-gray-500">
-        <div className="flex items-center gap-2">
-          <svg className="h-5 w-5 text-sky-500" fill="currentColor" viewBox="0 0 20 20">
-            <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-          </svg>
-          <span>Free to start</span>
-        </div>
-        <div className="flex items-center gap-2">
-          <svg className="h-5 w-5 text-sky-500" fill="currentColor" viewBox="0 0 20 20">
-            <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-          </svg>
-          <span>No credit card required</span>
-        </div>
-        <div className="flex items-center gap-2">
-          <svg className="h-5 w-5 text-sky-500" fill="currentColor" viewBox="0 0 20 20">
-            <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-          </svg>
-          <span>Setup in 5 minutes</span>
+        <div className="mt-12 flex flex-wrap items-center gap-8 text-sm text-gray-500">
+          {["Free to start", "No credit card required", "Setup in 5 minutes"].map((text, idx) => (
+            <div key={idx} className="flex items-center gap-2">
+              <svg className="h-5 w-5 text-sky-500" fill="currentColor" viewBox="0 0 20 20">
+                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+              </svg>
+              <span>{text}</span>
+            </div>
+          ))}
         </div>
       </div>
+      <div className="flex-1 flex justify-center md:justify-end mt-20">
+  <Image
+    src="/PublishedLeadMagnet.png"
+    alt="Published Lead Magnet"
+    width={800} 
+    height={3000} 
+    className="w-full max-w-lg md:max-w-xl lg:max-w-2xl object-contain"
+  />
+</div>
     </div>
   );
 };
@@ -436,13 +439,19 @@ const Footer = () => {
             <div className="flex space-x-4">
               <a href="#" className="text-gray-400 hover:text-sky-600 transition-colors">
                 <span className="sr-only">Twitter</span>
-                <Twitter className="h-5 w-5" />
+                <X className="h-5 w-5" />
               </a>
-              <a href="#" className="text-gray-400 hover:text-sky-600 transition-colors">
+              <a href="https://www.linkedin.com/in/darkovasiljkov"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-400 hover:text-sky-600 transition-colors">
                 <span className="sr-only">LinkedIn</span>
                 <Linkedin className="h-5 w-5" />
               </a>
-              <a href="#" className="text-gray-400 hover:text-sky-600 transition-colors">
+              <a href="https://www.github.com/in/darkovasiljkov"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-400 hover:text-sky-600 transition-colors">
                 <span className="sr-only">GitHub</span>
                 <Github className="h-5 w-5" />
               </a>
