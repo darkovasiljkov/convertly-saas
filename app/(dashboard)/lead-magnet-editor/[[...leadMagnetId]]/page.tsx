@@ -4,7 +4,7 @@ import React from "react";
 import { DEFAULT_LEAD_MAGNET } from "./lead-magnet-constants";
 import LeadMagnetNotFound from "@/components/LeadMagnetNotFound";
 import LeadMagnetEditorContainer from "./components/LeadMagnetEditorContainer";
-import { LeadMagnet } from "@/lib/generated/prisma/client";
+import { LeadMagnet } from "@prisma/client"
 
 
 interface LeadMagnetEditorParams {
@@ -36,7 +36,7 @@ async function LeadMagnetEditorPage({ params }: LeadMagnetEditorParams) {
 
     if (!leadMagnet)
     {
-        return <LeadMagnetNotFound returnLink="/leadmagnets" />
+        return <LeadMagnetNotFound returnLink="/lead-magnets" />
     }
     return <LeadMagnetEditorContainer leadMagnet={leadMagnet} />;
 }

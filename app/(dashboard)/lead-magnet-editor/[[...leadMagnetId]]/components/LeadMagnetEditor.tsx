@@ -1,6 +1,5 @@
 "use client";
 
-import { LeadMagnetEditorContextProvider } from "@/context/LeadMagnetEditorContext";
 import { LeadMagnet } from "@prisma/client";
 import React, { useState } from "react";
 import LeadMagnetEditorNavbar from "./LeadMagnetEditorNavBar";

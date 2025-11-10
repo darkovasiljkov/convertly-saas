@@ -44,7 +44,7 @@ async function handleRequest(
       message: "Successfully handled lead magnet change!",
       data: updatedLeadMagnet,
     },
-    { status: isUpdate ? 201 : 200 }
+    { status: isUpdate ? 200 : 201 }
   );
 }
 

@@ -1,24 +1,47 @@
 import { z } from "zod";
 
 export const leadMagnetCreateRequest = z.object({
-  name: z.string().min(1, { message: "Name is required" }),
-  status: z.string().min(1, { message: "Status is required" }),
-  draftBody: z.string().min(1, { message: "Draft body is required" }),
-  draftTitle: z.string().min(1, { message: "Draft title is required" }),
-  draftSubtitle: z.string().min(1, { message: "Draft subtitle is required" }),
-  draftPrompt: z.string().min(1, { message: "Draft prompt is required" }),
-  draftFirstQuestion: z.string().min(1, { message: "Draft first question is required" }),
-  publishedBody: z.string().min(1, { message: "Published body is required" }),
-  publishedTitle: z.string().min(1, { message: "Published title is required" }),
-  publishedSubtitle: z.string().min(1, { message: "Published subtitle is required" }),
-  publishedPrompt: z.string().min(1, { message: "Published prompt is required" }),
-  publishedFirstQuestion: z.string().min(1, { message: "Published first question is required" }),
-  draftEmailCapture: z.string().min(1, { message: "Draft email capture is required" }),
-  publishedEmailCapture: z.string().min(1, { message: "Published email capture is required" }),
-  slug: z.string().min(1, { message: "Slug is required" }),
+  name: z.string().min(1, "Name is required"),
+  status: z.enum(["draft", "published"]),
+  draftBody: z.string().min(1, "Draft body is required"),
+  draftTitle: z.string().min(1, "Draft title is required"),
+  draftSubtitle: z.string().min(1, "Draft subtitle is required"),
+  draftPrompt: z.string().min(1, "Draft prompt is required"),
+  draftFirstQuestion: z.string().min(1, "Draft first question is required"),
+  draftEmailCapture: z.string().min(1, "Draft email capture is required"),
+
+  publishedBody: z.string().optional(),
+  publishedTitle: z.string().optional(),
+  publishedSubtitle: z.string().optional(),
+  publishedPrompt: z.string().optional(),
+  publishedFirstQuestion: z.string().optional(),
+  publishedEmailCapture: z.string().optional(),
+
+  slug: z.string().optional(),
 });
 
-export const leadMagnetUpdateRequest = leadMagnetCreateRequest.extend({
-  id: z.string().min(1, { message: "Id is required" }),
-  userId: z.string().min(1, { message: "User Id is required" }),
+export const leadMagnetCreateRequestRefined = leadMagnetCreateRequest.refine(
+  (data) => {
+    if (data.status === "published") {
+      return (
+        data.publishedBody?.length &&
+        data.publishedTitle?.length &&
+        data.publishedSubtitle?.length &&
+        data.publishedPrompt?.length &&
+        data.publishedFirstQuestion?.length &&
+        data.publishedEmailCapture?.length
+      );
+    }
+    return true; 
+  },
+  {
+    message:
+      "All published fields are required when publishing.",
+    path: ["publishedBody"],
+  }
+);
+
+export const leadMagnetUpdateRequest = leadMagnetCreateRequestRefined.safeExtend({
+  id: z.string().min(1, "Id is required"),
+  userId: z.string().min(1, "User Id is required"),
 });

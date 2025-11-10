@@ -22,7 +22,7 @@ export async function POST(request: Request)
         return NextResponse.json({ message: parsedRequest.error }, { status: 400 });
     }
 
-    const leadMagnet = await prismadb.leadMagnet.findUnique({
+    const leadMagnet = await prismadb.leadMagnet.findUniqueOrThrow({
         where: {
             id: parsedRequest.data.leadMagnetId,
         },

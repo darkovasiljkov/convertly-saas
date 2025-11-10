@@ -12,7 +12,7 @@ export default function LeadMagnetEmailEditor() {
         </h1>
         <div className="mb-4">
           <label className="mb-2 block text-sm font-bold text-gray-700">
-            Email Capture Prompt
+            Email Capture Title
           </label>
           <input
             type="text"

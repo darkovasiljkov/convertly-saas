@@ -31,7 +31,7 @@ const getLeads = async (userId: string) => {
 
 const getSubscription = async (userId: string) => {
   try {
-    const subscription = await prismadb.subscription.findUnique({
+    const subscription = await prismadb.subscription.findUniqueOrThrow({
       where: { userId },
     });
 

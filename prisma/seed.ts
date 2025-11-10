@@ -12,7 +12,7 @@ const seed = async () => {
       draftPrompt: "This is a draft prompt",
       draftSubtitle: "This is a draft subtitle",
       draftTitle: "This is a draft title",
-      name: "Alex Hormozi Books",
+      name: "This is a draft name",
       publishedBody: "This is a published body",
       publishedEmailCapture: "This is a published email capture",
       publishedFirstQuestion: "This is a published first question",

@@ -33,7 +33,7 @@ export async function POST(request: Request) {
 
   const publishRequest = parsedPublishedRequest.data;
 
-  const leadMagnet = await prismadb.leadMagnet.findUnique({
+  const leadMagnet = await prismadb.leadMagnet.findUniqueOrThrow({
     where: {
       id: publishRequest.id,
     },

@@ -3,24 +3,6 @@ import { prismadb } from '@/lib/prismadb';
 import React from 'react'
 import LeadContainer
  from './components/LeadContainer';
-const getLeadMagnet = (leadMagnetId: string) => {
-return prismadb.leadMagnet.findUnique({
-    where: {
-        id: leadMagnetId,
-    },
-  });
-};
-
-const getLeads = (leadMagnetId: string) => {
-return prismadb.lead.findMany({
-    where: {
-        id: leadMagnetId,
-    },
-    orderBy: {
-      createdAt: 'desc',
-    }
-  });
-};
 
 interface LeadPageProps {
 params: {
@@ -29,25 +11,16 @@ params: {
 
 }
 export default async function LeadsPage({ params }: LeadPageProps) {
+  const { leadMagnetId } = params;
 
-  const leadMagnetId = params.leadMagnetId;
-
-  if (!leadMagnetId)
-  {
+  if (!leadMagnetId) {
     return <LeadMagnetNotFound returnLink='/lead-magnets' />
   }
 
-  const fetchLeadMagnet = getLeadMagnet(leadMagnetId);
-  const fetchLeads = getLeads(leadMagnetId);
+  const leadMagnet = await prismadb.leadMagnet.findUniqueOrThrow({
+    where: { id: leadMagnetId },
+    include: { leads: { orderBy: { createdAt: 'desc' } } }
+  });
 
-  const[ leadMagnet, leads ] = await Promise.all([fetchLeadMagnet, fetchLeads]);
-
-  if (!leadMagnet)
-  {
-    return <LeadMagnetNotFound returnLink='/lead-magnets' />
-  }
-
-  return (
-    <LeadContainer leadMagnet={leadMagnet} leads={leads} />
-  );
+  return <LeadContainer leadMagnet={leadMagnet} leads={leadMagnet.leads} />;
 }

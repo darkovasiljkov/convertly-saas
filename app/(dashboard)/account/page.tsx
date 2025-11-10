@@ -8,7 +8,7 @@ import AccountContainer from './components/AccountContainer';
 export default async function  AccountPage() {
 
 const fetchAccounts = async (userId: string) => {
-let account = await prismadb.account.findUnique({where: {userId}});
+let account = await prismadb.account.findUniqueOrThrow({where: {userId}});
     if (!account)
     {
         const user = await currentUser()
@@ -30,7 +30,7 @@ let account = await prismadb.account.findUnique({where: {userId}});
 };
 
 const fetchSubscription = (userId: string) => {
-    return prismadb.subscription.findUnique({
+    return prismadb.subscription.findUniqueOrThrow({
       where: { userId }
     });
   }

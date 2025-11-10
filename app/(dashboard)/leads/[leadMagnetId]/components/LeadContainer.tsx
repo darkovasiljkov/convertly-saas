@@ -1,6 +1,6 @@
 
 
-import { Lead, LeadMagnet } from '@/lib/generated/prisma'
+import { Lead, LeadMagnet } from '@prisma/client';
 import React from "react";
 import LeadsTable from './LeadsTable';
 
