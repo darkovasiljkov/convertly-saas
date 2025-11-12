@@ -22,16 +22,16 @@ function DashboardNavBar() {
   console.log("pathname", pathname);
 
   return (
-    <div className="flex w-screen items-center justify-between p-6 h-20 text-darkblue-500 border-b-2 ">
-        <Link href="/" className="flex items-center no-underline"> 
-            <Image
-            src="/ConvertlyTransparent_Logo.png" 
-            alt="Convertly Logo"
-            width={150}
-            height={150}
-            className="object-contain"
+    <div className="top-0 z-50 w-screen flex items-center justify-between p-6 h-20 bg-white/80 text-darkblue-500 border-b-2">
+        <Link href="/" className="flex items-center no-underline ml-8">
+          <Image
+              src="/Convertly_Fixed.png"
+              alt="Convertly Logo"
+              width={135}
+              height={33}
+              className="object-contain"
             />
-      </Link>
+        </Link>
       <div className="flex gap-x-6 text-lg items-center">
         {routes.map((route, idx) => (
           <Link

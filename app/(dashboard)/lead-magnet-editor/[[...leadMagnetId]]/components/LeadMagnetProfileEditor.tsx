@@ -8,7 +8,7 @@ import toast from 'react-hot-toast';
 export default function LeadMagnetProfileEditor() {
    const { edittedProfile, setEdittedProfile } = useProfileEditorContext()
   return (
-    <div className="flex h-full flex-row border-t-2 border-gray-200">
+    <div className="flex h-full flex-row border-gray-200">
       <div className="m-8 flex w-1/2 flex-col">
              <h1 className="mb-4 w-fit bg-gradient-to-r from-sky-500 to-blue-600 bg-clip-text text-3xl font-bold text-transparent">
           Profile Editor

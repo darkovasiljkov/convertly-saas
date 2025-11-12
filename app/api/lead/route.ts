@@ -1,9 +1,7 @@
 import { NextResponse } from "next/server";
 import { prismadb } from "@/lib/prismadb";
-import { slugifyLeadMagnet } from "@/lib/utils";
-import { currentUser } from "@clerk/nextjs/server";
 
-import { object, string, z } from "zod";
+import { object, z } from "zod";
 
 const createLeadRequestSchema = object({
     name: z.string(),
@@ -22,7 +20,7 @@ export async function POST(request: Request)
         return NextResponse.json({ message: parsedRequest.error }, { status: 400 });
     }
 
-    const leadMagnet = await prismadb.leadMagnet.findUniqueOrThrow({
+    const leadMagnet = await prismadb.leadMagnet.findUnique({
         where: {
             id: parsedRequest.data.leadMagnetId,
         },

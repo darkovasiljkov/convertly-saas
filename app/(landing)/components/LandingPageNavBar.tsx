@@ -17,12 +17,12 @@ async function LandingPageNavbar() {
 
   return (
     <nav className="sticky top-0 z-50 w-screen flex items-center justify-between p-6 h-20 bg-white/80 backdrop-blur-md transition-shadow shadow-md">
-      <Link href="/" className="flex items-center no-underline">
+      <Link href="/" className="flex items-center no-underline ml-8">
         <Image
-          src="/ConvertlyTransparent_Logo.png"
+          src="/Convertly_Fixed.png"
           alt="Convertly Logo"
-          width={150}
-          height={150}
+          width={135}
+          height={33}
           className="object-contain"
         />
       </Link>
@@ -43,8 +43,10 @@ async function LandingPageNavbar() {
         {user ? (
           <div className="flex flex-row items-center gap-x-4">
             <Link href="/lead-magnets">
-              <Button variant="outline">Get Started Free</Button>
-            </Link>
+            <Button className="bg-gradient-to-r from-sky-500 to-blue-600 not-first:font-semibold shadow-lg transition-all hover:shadow-xl hover:scale-105">
+              Get started free
+            </Button>
+          </Link>
             <UserButton showName />
           </div>
         ) : (

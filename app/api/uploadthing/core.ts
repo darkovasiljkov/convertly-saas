@@ -27,7 +27,7 @@ export const uploadThingFileRouter = {
     })
     .onUploadComplete(async ({ metadata, file }) => {
 
-        const profile = await prismadb.profile.findUniqueOrThrow({where: {userId: metadata.id}})
+        const profile = await prismadb.profile.findUnique({where: {userId: metadata.id}})
 
         if (!profile) 
         { 

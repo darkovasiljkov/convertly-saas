@@ -19,7 +19,7 @@ export default async function LeadMagnetPage({ params }: LeadMagnetPageProps) {
     return <LeadMagnetNotFound returnLink="/" />;
   }
 
-  const account = await prismadb.account.findUniqueOrThrow({
+  const account = await prismadb.account.findUnique({
     where: { username: params.username },
   });
 

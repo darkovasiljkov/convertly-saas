@@ -73,14 +73,14 @@ const Hero = () => {
         </div>
       </div>
       <div className="flex-1 flex justify-center md:justify-end mt-20">
-  <Image
-    src="/PublishedLeadMagnet.png"
-    alt="Published Lead Magnet"
-    width={800} 
-    height={3000} 
-    className="w-full max-w-lg md:max-w-xl lg:max-w-2xl object-contain"
-  />
-</div>
+        <Image
+          src="/PublishedLeadMagnetScreenshot.png"
+          alt="Published Lead Magnet Screenshot Showcase"
+          width={1895} 
+          height={952} 
+           className="relative w-full md:max-w-xl lg:max-w-2xl object-contain border-1 border-sky-600"
+        />
+      </div>
     </div>
   );
 };
@@ -356,7 +356,7 @@ const CTA = () => {
         <div className="flex flex-col gap-4 sm:flex-row sm:justify-center">
           <Link href="/lead-magnets">
             <Button size="lg" className="bg-gradient-to-r from-sky-500 to-blue-600 px-8 py-6 text-lg font-semibold shadow-lg transition-all hover:shadow-xl hover:scale-105">
-              Get Started Free
+              Try Convertly now
             </Button>
           </Link>
           <Link href="#how-it-works">
@@ -423,13 +423,13 @@ const Footer = () => {
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
         <div className="xl:grid xl:grid-cols-3 xl:gap-8">
           <div className="space-y-6">
-            <Image
-              src="/ConvertlyTransparent_Logo.png"
-              alt="Convertly Logo"
-              width={140}
-              height={140}
-              className="object-contain"
-            />
+              <Image
+                  src="/Convertly_Fixed.png"
+                  alt="Convertly Logo"
+                  width={110}
+                  height={33}
+                  className="object-contain"
+                />
             <p className="text-sm text-gray-600 max-w-xs">
               Create AI-powered lead magnets that convert visitors into qualified leads—no coding required.
             </p>

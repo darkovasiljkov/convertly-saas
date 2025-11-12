@@ -25,7 +25,7 @@ export default function LeadMagnetSettings() {
                                 slug: newSlug,
                             }));
                         }}
-                        placeholder='What is the title of your lead magnet?'
+                        placeholder='ex. lead-magnet-slug?'
                 />
                 <p className="mt-2 text-sm text-gray-500">
                     Slug can only contain numbers, letters and (-).
